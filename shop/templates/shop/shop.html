@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Shop</title>
+{% load static %}
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{%static 'shop/css/all.min.css'%}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{%static 'shop/bootstrap/css/bootstrap.min.css'%}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{%static 'shop/css/owl.carousel.css'%}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{%static 'shop/css/magnific-popup.css'%}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{%static 'shop/css/animate.css'%}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{%static 'shop/css/meanmenu.min.css'%}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{%static 'shop/css/main.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{%static 'shop/css/responsive.css'%}">
+
+</head>
+<body>
+
+
+
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div><nav class="navbar navbar-expand-lg" style="background-color:#BE90D4">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="/shop/shop" style="color:black"><b>NutriHub</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/shop/shop">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/cart">Cart</a>
+        </li>
+		    <li class="nav-item">
+          <a class="nav-link" href="/shop/shop">Shop</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" href="/shop/contact">Contact</a>
+        </li>
+                        <li>   <a class="nav-link active" aria-current="page" data-toggle="modal" data-target="#exampleModal" style="color:white">Myorder</a></li>
+      </ul>
+      <form class="d-flex" role="search" action="/shop/searchu" method="post"> {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+    <!-- Header Section End -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter the Email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/shop/myorderf/">
+{% csrf_token %}
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+<input type="text"  class="form-control-plaintext" id="staticEmail" name="email">
+  </div>
+   </div>
+         <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+</form>
+</div>
+  </div>
+</div>
+ {% for product,range,nos in allprod %}
+                           {% for i in product %}
+				<div class="col-lg-4 col-md-6 text-center strawberry">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="/shop/products/{{i.id}}"><img src="\media\{{i.Product_image}}" alt=""></a>
+						</div>
+						<h3>{{i.Food_Name}}</h3>
+						<span><b>Price</b> {{i.Price}}</span>
+					</div>
+				</div>
+				{%endfor%} {%endfor%}
+
+		</div>
+	</div>
+S
+
+<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2023<a href="https://nutrihub.com/"> NutriHub</a>,  All Rights Reserved.
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{%static 'shop/js/jquery-1.11.3.min.js'%}"></script>
+	<!-- bootstrap -->
+	<script src="{%static 'shop/bootstrap/js/bootstrap.min.js'%}"></script>
+	<!-- count down -->
+	<script src="{%static 'shop/js/jquery.countdown.js'%}"></script>
+	<!-- isotope -->
+	<script src="{%static 'shop/js/jquery.isotope-3.0.6.min.js'%}"></script>
+	<!-- waypoints -->
+	<script src="{%static 'shop/js/waypoints.js'%}"></script>
+	<!-- owl carousel -->
+	<script src="{%static 'shop/js/owl.carousel.min.js'%}"></script>
+	<!-- magnific popup -->
+	<script src="{%static 'shop/js/jquery.magnific-popup.min.js'%}"></script>
+	<!-- sticker js -->
+	<script src="{%static 'shop/js/sticker.js'%}"></script>
+	<!-- main js -->
+	<script src="{%static 'shop/js/main.js'%}"></script>
+
+</body>
+</html>

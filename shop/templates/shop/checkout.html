@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Check Out</title>
+
+
+{% load static %}
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{%static 'shop/css/all.min.css'%}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{%static 'shop/bootstrap/css/bootstrap.min.css'%}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{%static 'shop/css/owl.carousel.css'%}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{%static 'shop/css/magnific-popup.css'%}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{%static 'shop/css/animate.css'%}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{%static 'shop/css/meanmenu.min.css'%}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{%static 'shop/css/main.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{%static 'shop/css/responsive.css'%}">
+
+</head>
+<body>
+	
+
+
+
+
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div><nav class="navbar navbar-expand-lg" style="background-color:#BE90D4">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="/shop/shop" style="color:black"><b>NutriHub</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/shop/shop">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/cart">Cart</a>
+        </li>
+		    <li class="nav-item">
+          <a class="nav-link" href="/shop/shop">Shop</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" href="/shop/contact">Contact</a>
+        </li>
+                        <li>   <a class="nav-link active" aria-current="page" data-toggle="modal" data-target="#exampleModal" style="color:white">Myorder</a></li>
+      </ul>
+      <form class="d-flex" role="search" action="/shop/searchu" method="post"> {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+    <!-- Header Section End -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Enter the Email</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/shop/myorderf/">
+{% csrf_token %}
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+<input type="text"  class="form-control-plaintext" id="staticEmail" name="email">
+  </div>
+   </div>
+         <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+</form>
+</div>
+  </div>
+</div>
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingOne">
+						      <h5 class="mb-0">
+						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          Billing Address
+						        </button>
+						      </h5>
+						    </div>
+
+						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="billing-address-form">
+						        	<form action="/shop/orderNow/" method="post">{% csrf_token %}
+						        		<p><input type="text" placeholder="Name" required name="fname" id="fname"></p>
+						        		<p><input type="email" placeholder="Email" required name="email" id="email"></p>
+						        		<p><input type="tel" pattern="[6-9][0-9]{9}" placeholder="Phone" required id="mobile" name="mobile"></p>
+										<p><input type="text" placeholder="zip code" required id="zip" name="zip"></p>
+										<p><input type="text" placeholder="state" required id="state" name="state"></p>
+										<p><input type="text" placeholder="city" required id="city" name="city"></p>
+										<p><input type="text" placeholder="country" required name="country" id="country"></p>
+						        		<p><textarea name="address" id="address" cols="30" rows="10" placeholder="Address" required></textarea></p>
+
+      <input type="hidden" class="form-control capitalize" id="item" name="items" required placeholder="Enter your name nere.." value="">
+      <input type="hidden" class="form-control capitalize" id="totalprice" name="price" required placeholder="Enter your name nere.." value="">
+				<center>	<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="cash" name="mode">
+  <label class="form-check-label" for="inlineCheckbox1">cash</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="rzp-button1" value="online" name="mode" checked>
+  <label class="form-check-label" for="rzp-button1">online</label>
+</div></center>
+										<br>
+										<center>
+											<button href="#" class="btn btn-info submit">Place Order</button></center>
+						        	</form>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+
+						  <div class="card single-accordion">
+
+						    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="card-details">
+						        	<p>Your card details goes here.</p>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="order-details-wrap">
+						<table class="order-details">
+							<thead>
+								<tr>
+									<th>Your order Details</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody class="order-details-body" id="disp">
+
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
+						Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+					</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{%static 'shop/js/jquery-1.11.3.min.js'%}"></script>
+	<!-- bootstrap -->
+	<script src="{%static 'shop/bootstrap/js/bootstrap.min.js'%}"></script>
+	<!-- count down -->
+	<script src="{%static 'shop/js/jquery.countdown.js'%}"></script>
+	<!-- isotope -->
+	<script src="{%static 'shop/js/jquery.isotope-3.0.6.min.js'%}"></script>
+	<!-- waypoints -->
+	<script src="{%static 'shop/js/waypoints.js'%}"></script>
+	<!-- owl carousel -->
+	<script src="{%static 'shop/js/owl.carousel.min.js'%}"></script>
+	<!-- magnific popup -->
+	<script src="{%static 'shop/js/jquery.magnific-popup.min.js'%}"></script>
+
+	<!-- sticker js -->
+	<script src="{%static 'shop/js/sticker.js'%}"></script>
+	<!-- main js -->
+	<script src="{%static 'shop/js/main.js'%}"></script>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+<script>
+ cart=JSON.parse(localStorage.getItem('cart'))
+off=JSON.parse(localStorage.getItem('off'))
+
+ var total=0;
+ displaykart(cart)
+ function displaykart(cart){
+ for(var i in cart){
+        total+=cart[i][0];
+    }
+let j=1;
+for(item in cart){
+if(cart[item][0]){
+v="/media/"+cart[item][4]
+t=cart[item][0]* Number(cart[item][3].slice(6,))
+display_item=`
+<tr>
+									<td>${cart[item][1]}</td>
+									<td>${t}</td>
+								</tr>`
+
+ $('#disp').append(display_item)
+j=j+1;
+}}
+}
+function price_total(cart){
+var price=0
+for(item in cart)
+{
+var op=cart[item][3].slice(6,)
+var qty=cart[item][0]
+qty=Number(qty)
+op=Number(op)
+price+=(op*qty)
+}
+
+}
+price_total(cart)
+items(cart)
+function items(cart){
+var string=""
+for(item in cart){
+string+=cart[item][1]+'{}'+ cart[item][0]+"{}"+ cart[item][3] +"{}"+ cart[item][5] +"{}"+ cart[item][4] +"{<>}"
+console.log(string)
+}
+console.log(string)
+$('#item').val(string)
+price_total(cart)
+}
+$('.submit').on('click',function(){
+var address=document.getElementById('address').value
+var city=document.getElementById('city').value
+var zip=document.getElementById('zip').value
+var mobile=document.getElementById('mobile').value
+var email=document.getElementById('email').value
+var state=document.getElementById('state').value
+if(email!='' && mobile!='' && address!='' && zip!='' && state!='' && city!=''){
+console.log("hello")
+var i=0
+var price=0
+var confirm={}
+for(item in cart)
+{
+var op=cart[item][3].slice(6,)
+var qty=cart[item][0]
+qty=Number(qty)
+op=Number(op)
+
+price+=(op*qty)
+i+=1}
+console.log(price)
+price+=40
+$('#totalprice').attr('value',price)
+var name=document.getElementById('fname').value
+var address=document.getElementById('address').value
+var b=document.getElementById('city').value
+var c=document.getElementById('country').value
+var d=document.getElementById('zip').value
+confirm=[i,price,name,address,b,c,d]
+console.log(confirm)
+localStorage.setItem('confirm', JSON.stringify(confirm));
+localStorage.setItem('cart', JSON.stringify(cart));
+}
+})
+
+</script>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_JUrSuXtKJQX3ry", // Enter the Key ID generated from the Dashboard
+    "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "NutriHub",
+    "description": "Test Transaction",
+    "image": "{%static 'shop/img/nutri.jpg'%}",
+    "order_id": "{{pay.id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert("online confirm");
+
+    },
+
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</body>
+</html>

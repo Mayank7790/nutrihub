@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{%static 'shop/css/all.min.css'%}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{%static 'shop/bootstrap/css/bootstrap.min.css'%}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{%static 'shop/css/owl.carousel.css'%}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{%static 'shop/css/magnific-popup.css'%}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{%static 'shop/css/animate.css'%}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{%static 'shop/css/meanmenu.min.css'%}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{%static 'shop/css/main.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{%static 'shop/css/responsive.css'%}">
+
+</head>
+<body>
+
+
+
+
+
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div><nav class="navbar navbar-expand-lg" style="background-color:#BE90D4">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="/shop/shop" style="color:black"><b>NutriHub</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/shop/shop">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/cart">Cart</a>
+        </li>
+       <li class="nav-item">
+          <a class="nav-link" href="/shop/contact">Contact</a>
+        </li>
+
+      </ul>
+      <form class="d-flex" role="search" action="/shop/searchu" method="post"> {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+</svg></button>
+      </form>
+    </div>
+  </div>
+</nav>
+	<div class="cart-section mt-150 mb-150">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-md-12">
+					<div class="cart-table-wrap">
+						<table class="cart-table">
+							<thead class="cart-table-head">
+								<tr class="table-head-row">
+									<th class="product-image">Product Image</th>
+									<th class="product-name">Name</th>
+									<th class="product-price">Price</th>
+									<th class="product-quantity">Date</th>
+                                    <th class="product-total">Status</th>
+								</tr>
+							</thead>
+							<tbody id="display">
+							 {%for Orders_img,Orders_name,Orders_price,Date,order_Description in product%}
+                             <tr class="table-body-row">
+									<td class="product-image"><img src="/media/{{Orders_img}}" alt="" style="width:300px"></td>
+									<td class="product-name">{{Orders_name}}</td>
+									<td class="product-price">&#x20b9 {{Orders_price}}</td>
+                                  <td class="product-quantity">{{Date}}</td>
+								 <td class="product-total">&#x20b9 {{order_Description}}</td>
+								</tr>
+                                {%endfor%}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+		</div>
+	</div>
+    </div>
+
+
+		</script><script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script src="{%static 'shop/js/jquery-1.11.3.min.js'%}"></script>
+	<!-- bootstrap -->
+	<script src="{%static 'shop/bootstrap/js/bootstrap.min.js'%}"></script>
+	<!-- count down -->
+	<script src="{%static 'shop/js/jquery.countdown.js'%}"></script>
+	<!-- isotope -->
+	<script src="{%static 'shop/js/jquery.isotope-3.0.6.min.js'%}"></script>
+	<!-- waypoints -->
+	<script src="{%static 'shop/js/waypoints.js'%}"></script>
+	<!-- owl carousel -->
+	<script src="{%static 'shop/js/owl.carousel.min.js'%}"></script>
+	<!-- magnific popup -->
+	<script src="{%static 'shop/js/jquery.magnific-popup.min.js'%}"></script>
+
+	<!-- sticker js -->
+	<script src="{%static 'shop/js/sticker.js'%}"></script>
+	<!-- main js -->
+	<script src="{%static 'shop/js/main.js'%}"></script>
+
+</body>
+</html>
